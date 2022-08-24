@@ -1,0 +1,212 @@
+body {
+  /*padding: 15px;*/
+  padding-top: 1em;
+  font-family: sans-serif;
+  color: #333;
+}
+
+#enemy-screen,
+#intro-screen {
+  max-width: 420px;
+  text-align: center; /* Centers h2 and buttons */
+}
+
+.contractInfo {
+  background-color: green;
+  padding: 4px;
+  width: 90%;
+  text-align: center;
+}
+
+#chooseStart {
+  max-width: 620px;
+  text-align: center; /* Centers h2 and buttons */
+}
+#enemy-screen h2,
+#intro-screen h2,
+#chooseStart h2 {
+  padding: 0 15px; /* Prevent text from touching the edges of the screen */
+}
+.brief {
+  display: flex;
+  justify-content: space-between;
+}
+.briefAddr {
+  justify-content: space-between;
+  width: fit-content;
+  display: flex;
+}
+#intro-screen button {
+  font-size: 3.4em;
+  padding: 3% 6%; /* With "%" padding is based on container's width */
+  margin: 0 4%; /* Create distance between buttons */
+}
+#chooseStart button {
+  font-size: 1.4em;
+  padding: 1% 3%; /* With "%" padding is based on container's width */
+  margin: 7% 4%; /* Create distance between buttons */
+}
+#enemy-screen button {
+  display: block;
+  margin: 0.6em auto;
+  font-size: 1.9em;
+  padding: 0.2em 0.4em;
+}
+
+.screen {
+  border: solid 2px black;
+  text-align: center;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  border-radius: 3px;
+  margin-top: 3em !important;
+}
+.secretInput,
+.contractInput {
+  min-height: 3vh;
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+.secretSelect {
+  min-height: 3vh;
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.secret-error {
+  background-color: rgb(180, 16, 49);
+  color: black;
+  width: 95%;
+  margin: 10px auto;
+}
+
+/****** GAME GRID ******/
+
+table {
+  max-width: 420px;
+  max-height: 420px;
+  width: 85vw; /* 85% of the viewport (body) width */
+  height: 85vw;
+  border-spacing: 4px 2px; /* Space between cells */
+}
+td {
+  padding: 0;
+  width: 33%; /* Every cell should be 1/3 of table height (and width) */
+  height: 33%;
+}
+.cell {
+  font-size: 3.4em;
+  font-size: 16vmin; /* Responsive font size! Awesome! */
+  height: 100%; /* Fill the container (td) */
+  width: 100%;
+}
+.wincell {
+  background-color: #c88; /* Red background to highlight the "winning" line */
+}
+.player-two {
+  color: #933;
+}
+
+/****** BUTTONS ******/
+
+button {
+  cursor: pointer; /* Visually show that you can interact with the button */
+  border: none; /* Hides default border (and color, for some reason */
+  color: #333;
+}
+
+#restart {
+  font-size: 1.2em;
+  padding: 5px 10px;
+  /* Center horizontally */
+  margin: 20px auto;
+  display: block;
+}
+
+#newAddr {
+  text-decoration: none;
+  font-size: 0.6em;
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 4px;
+  width: fit-content;
+  height: fit-content;
+  background-color: red;
+  color: black;
+  border-radius: 1px;
+}
+
+.choose,
+#restart {
+  border-radius: 0.3em;
+}
+.choose:active,
+#restart:active,
+#newAddr:active {
+  background-color: #ccc; /* Darker color when the button is pressed */
+}
+
+.btn-green {
+  background-color: #70d260;
+}
+.btn-green:active {
+  /* Override the active background for #restart */
+  background-color: #60c050 !important;
+}
+
+/******  HELPER CLASSES  ******/
+
+.center {
+  margin: 0 auto;
+}
+.hidden {
+  display: none;
+}
+.cannotuse {
+  cursor: not-allowed;
+}
+
+.hss {
+  text-align: center;
+}
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
