@@ -65,6 +65,7 @@ const isWinner = (uHands) => {
 const Player = {
   ...hasRandom,
   getHand: Fun([], UInt),
+  seeHand: Fun([UInt, UInt], Null),
   seeOutcome: Fun([UInt], Null),
   seeOutcome2: Fun([UInt], Null),
   informTimeout: Fun([], Null),
@@ -124,6 +125,10 @@ export const main = Reach.App(() => {
   require(hand1Player1 < 9);
   commit();
 
+  each([Player1, Player2], () => {
+    interact.seeHand(1, hand1Player1);
+  });
+
   const board1 = board.set(hand1Player1, 1);
 
   Player2.only(() => {
@@ -136,6 +141,9 @@ export const main = Reach.App(() => {
   );
   require(hand1Player2 < 9);
   commit();
+  each([Player1, Player2], () => {
+    interact.seeHand(2, hand1Player2);
+  });
   const board11 = board1.set(hand1Player2, 2);
 
   //------------------------------ get first hand ------------------------------------------//
@@ -151,6 +159,9 @@ export const main = Reach.App(() => {
   );
   require(hand2Player1 < 9);
   commit();
+  each([Player1, Player2], () => {
+    interact.seeHand(1, hand2Player1);
+  });
   const board2 = board11.set(hand2Player1, 1);
 
   Player2.only(() => {
@@ -163,6 +174,9 @@ export const main = Reach.App(() => {
   );
   require(hand2Player2 < 9);
   commit();
+  each([Player1, Player2], () => {
+    interact.seeHand(2, hand2Player2);
+  });
   const board22 = board2.set(hand2Player2, 2);
   //-------------------------------- get second hand --------------------------------------//
 
@@ -180,6 +194,7 @@ export const main = Reach.App(() => {
   commit();
 
   each([Player1, Player2], () => {
+    interact.seeHand(1, hand3Player1);
     interact.seeOutcome(p1win3);
   });
 
@@ -206,6 +221,7 @@ export const main = Reach.App(() => {
   commit();
 
   each([Player1, Player2], () => {
+    interact.seeHand(2, hand3Player2);
     interact.seeOutcome(p2win3);
   });
   const [timeRemaining32, keepGoing32] = makeDeadline(
@@ -233,6 +249,7 @@ export const main = Reach.App(() => {
   commit();
 
   each([Player1, Player2], () => {
+    interact.seeHand(1, hand4Player1);
     interact.seeOutcome(p1win4);
   });
 
@@ -259,6 +276,7 @@ export const main = Reach.App(() => {
   commit();
 
   each([Player1, Player2], () => {
+    interact.seeHand(2, hand4Player2);
     interact.seeOutcome(p2win4);
   });
   const [timeRemaining42, keepGoing42] = makeDeadline(
@@ -286,6 +304,7 @@ export const main = Reach.App(() => {
   commit();
 
   each([Player1, Player2], () => {
+    interact.seeHand(1, hand5Player1);
     interact.seeOutcome(p1win5);
   });
 

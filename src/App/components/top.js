@@ -14,6 +14,7 @@ export function Top({
     setAccountData();
     setAccountbal("");
     setAccountAddr("");
+    location.reload(false);
   }
   return (
     <>

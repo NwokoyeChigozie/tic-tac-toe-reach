@@ -11,8 +11,18 @@ body {
   text-align: center; /* Centers h2 and buttons */
 }
 
+.board {
+  margin-top: 4% !important;
+}
+
 .contractInfo {
   background-color: green;
+  padding: 4px;
+  width: 90%;
+  text-align: center;
+}
+
+.Waiting2join {
   padding: 4px;
   width: 90%;
   text-align: center;

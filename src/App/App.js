@@ -9,28 +9,18 @@ import { Top } from "./components/top";
 import { Game } from "./components/game";
 const stdlib = loadStdlib(process.env);
 
-// const reach = loadStdlib(process.env);
-
 function App() {
   const environment = ENVIRONMENT;
   const [accountData, setAccountData] = useState();
   const [accountbal, setAccountbal] = useState("");
   const [accountAddr, setAccountAddr] = useState("");
   const envD = JSON.parse(localStorage.getItem("env"));
-  const interact = { ...stdlib.hasRandom };
 
   async function _devAccountInfo(stdlib) {
     let acc = await GetAlgoTestNetAccount(stdlib);
     console.log("here1", acc);
     let bal = await GetAccBalance(stdlib, acc);
     let addr = stdlib.formatAddress(acc);
-
-    let ctc = acc.contract(backend);
-    stdlib.Player1(ctc, interact);
-    console.log("start contract", JSON.stringify(ctc));
-    let info = ctc.getInfo();
-    console.log(`The account data is ${JSON.stringify(acc)}`);
-    console.log(`The contract is deployed as = ${JSON.stringify(info)}`);
 
     console.log("here2", bal);
     localStorage.setItem("acc", JSON.stringify(acc));
@@ -39,14 +29,6 @@ function App() {
     setAccountbal(bal);
     setAccountAddr(addr);
   }
-
-  // if (accountData) {
-  //   let ctc = accountData.contract(backend);
-  //   ctc.getInfo().then((info) => {
-  //     console.log(`The account data is ${accountData}`);
-  //     console.log(`The contract is deployed as = ${JSON.stringify(info)}`);
-  //   });
-  // }
 
   async function _getFBalanceInfo(stdlib, acc) {
     console.log("bal here");
@@ -72,13 +54,13 @@ function App() {
     ) {
       _clearStorageRef();
     }
-    const accItems = JSON.parse(localStorage.getItem("acc"));
+    let accItems = JSON.parse(localStorage.getItem("acc"));
     console.log("stored", accItems);
-    if (accItems && !accountData) {
+    if (accItems) {
       _getFBalanceInfo(stdlib, accItems);
     }
 
-    if (environment != "production" && !accountData) {
+    if (environment != "production" && !accountData && !accItems) {
       _devAccountInfo(stdlib);
     }
   }, []);
@@ -113,6 +95,7 @@ function App() {
           setAccountbal={setAccountbal}
           setAccountAddr={setAccountAddr}
           accountData={accountData}
+          backend={backend}
         ></Game>
       )}
     </>
